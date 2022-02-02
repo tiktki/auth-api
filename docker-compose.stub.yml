@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    extends:
+      file: docker-compose.yml
+      service: web
+  api:
+    image: rodolpheche/wiremock:2.29.1-alpine
+    volumes:
+      - ./auth-api-stub/wiremock:/home/wiremock
+    ports:
+      - 14400:8080

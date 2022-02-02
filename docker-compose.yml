@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/auth
+    command: sh -c "cd auth-api-fr && yarn install && yarn dev"
+    ports:
+      - '8090:3000'

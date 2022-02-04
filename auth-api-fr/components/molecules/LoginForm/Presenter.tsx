@@ -25,7 +25,8 @@ const Presenter: React.FC<LoginFormPresenterInfo> = ({ inputInfoList }) => {
                 'bg-gray-700',
                 'text-white',
                 'text-lg',
-                'font-bold'
+                'font-bold',
+                'disabled:opacity-30'
               ),
               disabled: true,
             }}

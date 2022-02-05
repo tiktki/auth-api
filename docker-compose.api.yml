@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    extends:
+      file: docker-compose.yml
+      service: web
+    command: sh -c "cd auth-api-fr && yarn install && yarn build && yarn start"

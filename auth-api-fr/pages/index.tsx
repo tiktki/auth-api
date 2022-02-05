@@ -4,7 +4,11 @@ import classnames from 'classnames';
 import LoginLeft from 'components/organisms/LoginLeft';
 import LoginRight from 'components/organisms/LoginRight';
 
-const Login: NextPage = () => {
+interface LoginPageInfo {
+  bgImageUrl: string;
+}
+
+const Login: NextPage<LoginPageInfo> = ({ bgImageUrl }) => {
   return (
     <div className={classnames('h-screen', 'm-0', 'bg-white', 'font-mono')}>
       <Head>
@@ -13,10 +17,18 @@ const Login: NextPage = () => {
       </Head>
       <main className={classnames('w-full', 'h-full')}>
         <LoginLeft />
-        <LoginRight />
+        <LoginRight bgImageUrl={bgImageUrl} />
       </main>
     </div>
   );
+};
+
+export const getServerSideProps = () => {
+  const bgImageUrl = `/images/login_bg_${
+    Math.floor(Math.random() * 10) + 1
+  }.jpg`;
+
+  return { props: { bgImageUrl } };
 };
 
 export default Login;

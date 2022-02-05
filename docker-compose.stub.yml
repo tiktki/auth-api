@@ -4,6 +4,7 @@ services:
     extends:
       file: docker-compose.yml
       service: web
+    command: sh -c "cd auth-api-fr && yarn install && yarn dev"
   api:
     image: rodolpheche/wiremock:2.29.1-alpine
     volumes:

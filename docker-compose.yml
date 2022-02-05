@@ -6,6 +6,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/src/auth
-    command: sh -c "cd auth-api-fr && yarn install && yarn dev"
     ports:
       - 3000:3000

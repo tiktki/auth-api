@@ -1,7 +1,11 @@
 import Presenter from './Presenter';
 
-const LoginRight: React.FC = () => {
-  return <Presenter />;
+interface LoginRightInfo {
+  bgImageUrl: string;
+}
+
+const LoginRight: React.FC<LoginRightInfo> = ({ bgImageUrl }) => {
+  return <Presenter bgImageUrl={bgImageUrl} />;
 };
 
 export default LoginRight;

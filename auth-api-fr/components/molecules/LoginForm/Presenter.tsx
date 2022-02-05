@@ -4,9 +4,13 @@ import Input, { InputInfo } from 'components/atoms/Input';
 
 interface LoginFormPresenterInfo {
   inputInfoList: Array<InputInfo>;
+  isLoginDisabled: boolean;
 }
 
-const Presenter: React.FC<LoginFormPresenterInfo> = ({ inputInfoList }) => {
+const Presenter: React.FC<LoginFormPresenterInfo> = ({
+  inputInfoList,
+  isLoginDisabled,
+}) => {
   return (
     <>
       {inputInfoList.map((info) => (
@@ -28,7 +32,7 @@ const Presenter: React.FC<LoginFormPresenterInfo> = ({ inputInfoList }) => {
                 'font-bold',
                 'disabled:opacity-30'
               ),
-              disabled: true,
+              disabled: isLoginDisabled,
             }}
             itemNm='ログイン'
           />

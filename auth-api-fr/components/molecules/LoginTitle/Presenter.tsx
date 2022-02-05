@@ -1,8 +1,12 @@
 import classnames from 'classnames';
 
-const Presenter: React.FC = () => {
+interface LoginTitlePresenterInfo {
+  onLogoClick?: () => void;
+}
+
+const Presenter: React.FC<LoginTitlePresenterInfo> = ({ onLogoClick }) => {
   return (
-    <div className='pb-2'>
+    <div className='pb-2' onClick={onLogoClick}>
       <img
         className={classnames('block', 'w-3/4', 'm-auto')}
         src='/images/auth-api-logo.svg'

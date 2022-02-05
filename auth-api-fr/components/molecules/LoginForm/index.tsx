@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import Presenter from './Presenter';
 import { InputInfo } from 'components/atoms/Input';
+import { userIdSelector } from 'recoil/selectors/userIdSelector';
+import { passwordSelector } from 'recoil/selectors/passwordSelector';
 
 const LoginForm: React.FC = () => {
-  const [userId, setUserId] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [userId, setUserId] = useRecoilState<string>(userIdSelector);
+  const [password, setPassword] = useRecoilState<string>(passwordSelector);
 
   const inputInfoList: Array<InputInfo> = [
     {
@@ -25,7 +27,12 @@ const LoginForm: React.FC = () => {
     },
   ];
 
-  return <Presenter inputInfoList={inputInfoList} />;
+  return (
+    <Presenter
+      inputInfoList={inputInfoList}
+      isLoginDisabled={!userId || !password}
+    />
+  );
 };
 
 export default LoginForm;

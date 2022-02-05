@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import classnames from 'classnames';
 
-const Presenter: React.FC = () => {
+interface LoginRightPresenterInfo {
+  bgImageUrl: string;
+}
+
+const Presenter: React.FC<LoginRightPresenterInfo> = ({ bgImageUrl }) => {
   return (
     <div
       className={classnames(
@@ -16,7 +20,7 @@ const Presenter: React.FC = () => {
       )}
     >
       <Image
-        src={'/images/login_bg_9.jpg'}
+        src={bgImageUrl}
         layout='fill'
         priority={true}
         objectFit='cover'

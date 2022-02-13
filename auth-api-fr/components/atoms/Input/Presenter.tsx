@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { InputInfo } from '.';
 
 interface InputPresenterInfo extends InputInfo {
@@ -18,7 +18,7 @@ const Presenter: React.FC<InputPresenterInfo> = ({
   className,
 }) => {
   return (
-    <div className={classNames(className, 'relative')}>
+    <div className={classnames(className, 'relative')}>
       <input
         id={id}
         type={type}
@@ -27,7 +27,7 @@ const Presenter: React.FC<InputPresenterInfo> = ({
         onChange={(e) => setValue(e.target.value)}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
-        className={classNames(
+        className={classnames(
           'w-full',
           'h-12',
           'px-4',
@@ -40,7 +40,7 @@ const Presenter: React.FC<InputPresenterInfo> = ({
       />
       <label
         htmlFor={id}
-        className={classNames(
+        className={classnames(
           'absolute',
           'left-2',
           'bg-white',

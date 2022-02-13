@@ -5,6 +5,8 @@ services:
       file: docker-compose.yml
       service: web
     command: sh -c "cd auth-api-fr && yarn install && yarn dev"
+    environment:
+      - NEXT_PUBLIC_API_ENDPOINT=http://localhost:14400
   api:
     image: rodolpheche/wiremock:2.29.1-alpine
     volumes:

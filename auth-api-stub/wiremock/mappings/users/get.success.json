@@ -1,0 +1,17 @@
+{
+  "priority": 0,
+  "request": {
+    "method": "GET",
+    "url": "/users/54590c30-f3ae-4e92-906a-224edf674ed4"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Methods": "GET"
+    },
+    "bodyFileName": "users/get.success.json",
+    "fixedDelayMilliseconds": 3000
+  }
+}

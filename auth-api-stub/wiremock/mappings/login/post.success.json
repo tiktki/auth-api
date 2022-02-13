@@ -1,0 +1,25 @@
+{
+  "priority": 0,
+  "request": {
+    "method": "POST",
+    "url": "/login",
+    "bodyPatterns": [
+      {
+        "matches": "(.*&|^)userId=999999($|&.*)"
+      },
+      {
+        "matches": "(.*&|^)password=admin($|&.*)"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Methods": "POST"
+    },
+    "bodyFileName": "login/post.success.json",
+    "fixedDelayMilliseconds": 3000
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "priority": 0,
+  "request": {
+    "method": "GET",
+    "urlPath": "/login/bgimg"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "image/gif",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Methods": "GET"
+    },
+    "bodyFileName": "login/cracker.gif"
+  }
+}

@@ -4,11 +4,15 @@ import Input, { InputInfo } from 'components/atoms/Input';
 
 interface LoginFormPresenterInfo {
   inputInfoList: Array<InputInfo>;
+  errMessage: string;
+  doLogin: () => void;
   isLoginDisabled: boolean;
 }
 
 const Presenter: React.FC<LoginFormPresenterInfo> = ({
   inputInfoList,
+  errMessage,
+  doLogin,
   isLoginDisabled,
 }) => {
   return (
@@ -18,7 +22,12 @@ const Presenter: React.FC<LoginFormPresenterInfo> = ({
           <Input className={classnames('max-w-sm', 'mx-auto')} {...info} />
         </div>
       ))}
-      <div className={classnames('pt-8')}>
+      <p
+        className={classnames('py-4', 'text-center', 'text-red-500', 'text-xs')}
+      >
+        {errMessage}
+      </p>
+      <div>
         <div className={classnames('max-w-sm', 'mx-auto')}>
           <Button
             props={{
@@ -32,6 +41,7 @@ const Presenter: React.FC<LoginFormPresenterInfo> = ({
                 'font-bold',
                 'disabled:opacity-30'
               ),
+              onClick: doLogin,
               disabled: isLoginDisabled,
             }}
             itemNm='ログイン'

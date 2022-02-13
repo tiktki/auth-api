@@ -4,4 +4,14 @@ services:
     extends:
       file: docker-compose.yml
       service: web
-    command: sh -c "cd auth-api-fr && yarn install && yarn build && yarn start"
+    command: >
+      sh -c '
+        cd auth-api-fr
+        yarn install
+        yarn build
+        yarn start
+      '
+  plantuml-server:
+    extends:
+      file: docker-compose.yml
+      service: plantuml-server

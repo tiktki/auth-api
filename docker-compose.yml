@@ -8,3 +8,7 @@ services:
       - ./:/usr/src/auth
     ports:
       - 3000:3000
+  plantuml-server:
+    image: plantuml/plantuml-server
+    ports:
+      - '9999:8080'

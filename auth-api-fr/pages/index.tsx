@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { NextPage } from 'next';
 import CircleProgress from 'components/molecules/CircleProgress';
-import useInit from 'hook/useInit';
+import useInit from 'hooks/useInit';
 
 const Init: NextPage = () => {
   useInit();

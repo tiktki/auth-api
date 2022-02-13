@@ -8,9 +8,11 @@ import { passwordSelector } from 'recoil/selectors/passwordSelector';
 import { redirectUrlStateSelector } from 'recoil/selectors/redirectUrlStateSelector';
 import { userIdSelector } from 'recoil/selectors/userIdSelector';
 import { useState } from 'react';
+import useLocale from 'hooks/useLocale';
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
+  const { t } = useLocale();
   const [userId, setUserId] = useRecoilState<string>(userIdSelector);
   const [password, setPassword] = useRecoilState<string>(passwordSelector);
   const setLoadingState = useSetRecoilState<boolean>(loadingStateSelector);
@@ -21,7 +23,7 @@ const LoginForm: React.FC = () => {
     {
       id: 'userid',
       type: 'text',
-      itemNm: 'ユーザID',
+      itemNm: t.userId,
       value: userId,
       setValue: setUserId,
       isRequired: true,
@@ -29,7 +31,7 @@ const LoginForm: React.FC = () => {
     {
       id: 'password',
       type: 'password',
-      itemNm: 'パスワード',
+      itemNm: t.password,
       value: password,
       setValue: setPassword,
       isRequired: true,
@@ -45,12 +47,13 @@ const LoginForm: React.FC = () => {
     } else {
       localStorage.removeItem('code');
       setLoadingState(false);
-      setErrMessage('ユーザーIDまたはパスワードが違います');
+      setErrMessage(t.authError);
     }
   };
 
   return (
     <Presenter
+      t={t}
       inputInfoList={inputInfoList}
       errMessage={errMessage}
       doLogin={doLogin}

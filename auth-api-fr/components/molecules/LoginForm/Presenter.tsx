@@ -1,8 +1,10 @@
 import classnames from 'classnames';
 import Button from 'components/atoms/Button';
 import Input, { InputInfo } from 'components/atoms/Input';
+import { TranslateLocale } from 'hooks/useLocale';
 
 interface LoginFormPresenterInfo {
+  t: TranslateLocale;
   inputInfoList: Array<InputInfo>;
   errMessage: string;
   doLogin: () => void;
@@ -10,6 +12,7 @@ interface LoginFormPresenterInfo {
 }
 
 const Presenter: React.FC<LoginFormPresenterInfo> = ({
+  t,
   inputInfoList,
   errMessage,
   doLogin,
@@ -23,7 +26,7 @@ const Presenter: React.FC<LoginFormPresenterInfo> = ({
         </div>
       ))}
       <p
-        className={classnames('py-4', 'text-center', 'text-red-500', 'text-xs')}
+        className={classnames('py-4', 'text-center', 'text-red-500', 'text-sm')}
       >
         {errMessage}
       </p>
@@ -44,7 +47,7 @@ const Presenter: React.FC<LoginFormPresenterInfo> = ({
               onClick: doLogin,
               disabled: isLoginDisabled,
             }}
-            itemNm='ログイン'
+            itemNm={t.login}
           />
         </div>
       </div>

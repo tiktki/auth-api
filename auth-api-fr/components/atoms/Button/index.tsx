@@ -2,6 +2,7 @@ import Presenter from './Presenter';
 
 export interface ButtonInfo {
   props?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  icon?: React.SVGProps<SVGSVGElement>;
   itemNm: string;
 }
 

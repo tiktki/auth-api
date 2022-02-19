@@ -11,6 +11,14 @@ services:
         yarn build
         yarn start
       '
+    environment:
+      - NEXT_PUBLIC_API_ENDPOINT=http://localhost:14400
+  api:
+    image: rodolpheche/wiremock:2.29.1-alpine
+    volumes:
+      - ./auth-api-stub/wiremock:/home/wiremock
+    ports:
+      - 14400:8080
   plantuml-server:
     extends:
       file: docker-compose.yml
